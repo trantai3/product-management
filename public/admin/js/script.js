@@ -14,3 +14,20 @@ if (buttonsStatus.length > 0) {
         })
     })
 }
+
+// Form search
+const formSearch = document.querySelector("#form-search")
+if(formSearch) {
+    let url = new URL(window.location.href) // get url 
+    formSearch.addEventListener("submit", (event) => {
+        event.preventDefault()  // prevent the other website navigation to keep the status like that status=active&keyword=iphone
+        //console.log(event.target.elements.keyword.value) // get value
+        const keyword = event.target.elements.keyword.value
+        if(keyword) {
+            url.searchParams.set("keyword", keyword) // set params
+        } else { 
+            url.searchParams.delete("keyword")    // delete params
+        }
+        window.location.href = url.href // when click on button will navigate the other website
+    })
+}

@@ -23,6 +23,11 @@ routeAdmin(app);
 // Connect to database
 database.connect(); // connect
 
+// App Locals Variables
+const systemConfig = require("./config/system")
+app.locals.prefixAdmin = systemConfig.prefixAdmin
+// prefixAdmin variable exits all pug files
+
 const port = process.env.PORT; // add .ENV
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`); // listen port

@@ -1,5 +1,5 @@
 const Product = require("../../models/product.model")
-
+// // [GET] /products
 module.exports.index = async (req, res) => {   // add a property index 
     const products = await Product.find({  // handle the logics
       status: "active",

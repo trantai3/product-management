@@ -4,6 +4,8 @@ const express = require('express'); // add module express
 const app = express();
 
 const database = require('./config/database'); // recall
+// Connect to database
+database.connect(); // connect
 
 // Set Pug
 app.set('views', './views');
@@ -20,8 +22,6 @@ route(app); // recall
 const routeAdmin = require('./routes/admin/index.route'); // recall
 routeAdmin(app);
 
-// Connect to database
-database.connect(); // connect
 
 // App Locals Variables
 const systemConfig = require("./config/system")

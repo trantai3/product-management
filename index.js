@@ -1,5 +1,5 @@
 require('dotenv').config(); //  add environment .env
-
+const methodOverride = require('method-override')
 const express = require('express'); // add module express
 const app = express();
 
@@ -14,6 +14,8 @@ app.set('view engine', 'pug');
 // Insert static file
 app.use(express.static('public')); // anyone can see this file
 
+// Insert method override
+app.use(methodOverride('_method'))
 // Routes client
 const route = require('./routes/client/index.route'); // recall
 route(app); // recall

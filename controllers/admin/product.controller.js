@@ -53,3 +53,11 @@ module.exports.index = async (req, res) => {
         pagination: objectPagination
     })
 }
+
+// [GET] /admins/products/change-status/:status/:id
+module.exports.changeStatus = async (req, res) => {
+    const status = req.params.status    // params: :status/:id
+    const id = req.params.id
+    await Product.updateOne({ _id: id}, { status: status})                                 // update a production
+    res.redirect("back")
+}

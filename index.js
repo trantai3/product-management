@@ -1,5 +1,6 @@
 require('dotenv').config(); //  add environment .env
-const methodOverride = require('method-override')
+const methodOverride = require('method-override') // overwrite
+const bodyParser = require('body-parser')
 const express = require('express'); // add module express
 const app = express();
 
@@ -16,6 +17,10 @@ app.use(express.static('public')); // anyone can see this file
 
 // Insert method override
 app.use(methodOverride('_method'))
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
 // Routes client
 const route = require('./routes/client/index.route'); // recall
 route(app); // recall

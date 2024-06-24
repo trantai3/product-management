@@ -4,7 +4,7 @@ module.exports.index = async (req, res) => {   // add a property index
     const products = await Product.find({  // handle the logics
       status: "active",
       deleted: false
-    });  // get all
+    }).sort({ position: "desc" });  // get all
     
     console.log(products)
     const newProduct = products.map(item => {

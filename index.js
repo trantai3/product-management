@@ -1,6 +1,9 @@
 require('dotenv').config(); //  add environment .env
 const methodOverride = require('method-override') // overwrite
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+const session = require('express-session')
+const flash = require("express-flash")
 const express = require('express'); // add module express
 const app = express();
 
@@ -12,7 +15,12 @@ database.connect(); // connect
 app.set('views', './views');
 app.set('view engine', 'pug');
 
-// Insert static file
+// Flash
+app.use(cookieParser('andrew garfield'));
+app.use(session({ cookie: { maxAge: 60000 }}));
+app.use(flash());
+// End Flash 
+
 app.use(express.static('public')); // anyone can see this file
 
 // Insert method override

@@ -40,7 +40,7 @@ routeAdmin(app);
 
 // App Locals Variables
 const systemConfig = require("./config/system")
-app.locals.prefixAdmin = systemConfig.prefixAdmin
+app.locals.prefixAdmin = systemConfig.prefixAdmin // use pug
 // prefixAdmin variable exits all pug files
 
 const port = process.env.PORT; // add .ENV

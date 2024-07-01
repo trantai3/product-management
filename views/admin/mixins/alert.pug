@@ -2,3 +2,8 @@ mixin alert-success(time)
   if messages.success
     .alert.alert-success(role="alert" show-alert data-time =time) 
       span.alert-close #{messages.success}
+
+mixin alert-error(time)
+  if messages.error
+    .alert.alert-danger(role="alert" show-alert data-time =time) 
+      span.alert-close #{messages.error}

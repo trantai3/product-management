@@ -6,6 +6,8 @@ const upload = multer({ storage: storageMulter() })
 
 
 const controller = require('../../controllers/admin/product.controller') // import dashboard.controller file
+const validate = require('../../validates/admin/product.validate') // import validate file
+
 router.get('/', controller.index)   // define router handler with a path "/"
 
 
@@ -17,6 +19,10 @@ router.delete('/delete/:id', controller.deleteItem)
 
 router.get('/create', controller.create)
 
-router.post('/create', upload.single('thumbnail'), controller.createPost)
+router.post(
+    '/create', 
+    upload.single('thumbnail'),
+    validate.createPost, // middleware 
+    controller.createPost)
 
 module.exports = router // return router and reuse

@@ -25,4 +25,12 @@ router.post(
     validate.createPost, // middleware 
     controller.createPost)
 
+router.get('/edit/:id', controller.edit)
+
+router.patch(
+    '/edit/:id', 
+    upload.single('thumbnail'),
+    validate.createPost, // middleware 
+    controller.editPatch)
+
 module.exports = router // return router and reuse

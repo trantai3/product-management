@@ -33,4 +33,6 @@ router.patch(
     validate.createPost, // middleware 
     controller.editPatch)
 
+router.get('/detail/:id', controller.detail)
+
 module.exports = router // return router and reuse

@@ -196,7 +196,6 @@ module.exports.detail = async (req, res) => {
             pageTitle: product.title,
             product: product
         })
-        console.log(product)
     } catch (error) {
         res.redirect(`${systemConfig.prefixAdmin}/products`)
     }

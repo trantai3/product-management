@@ -16,4 +16,25 @@ module.exports.index = async (req, res) => {   // add a property index
       pageTitle: "Danh sách sản phẩm",
       products: newProduct               
     })
+}
+
+// // [GET] /products
+module.exports.detail = async (req, res) => {   // add a property index 
+  try {
+    const find = {
+        deleted: false,
+        slug: req.params.slug,
+        status: "active"
+    }
+
+    const product = await Product.findOne(find)
+
+    console.log(product)
+    res.render("client/pages/products/detail", {
+        pageTitle: product.title,
+        product: product
+    })
+  } catch (error) {
+    res.redirect(`/products`)
   }
+}

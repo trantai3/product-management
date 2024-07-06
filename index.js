@@ -12,7 +12,7 @@ const database = require('./config/database'); // recall
 database.connect(); // connect
 
 // Set Pug
-app.set('views', './views');
+app.set('views', `${__dirname}/views`);
 app.set('view engine', 'pug');
 
 // Flash
@@ -21,7 +21,7 @@ app.use(session({ cookie: { maxAge: 60000 }}));
 app.use(flash());
 // End Flash 
 
-app.use(express.static('public')); // anyone can see this file
+app.use(express.static(`${__dirname}/public`)); // anyone can see this file
 
 // Insert method override
 app.use(methodOverride('_method'))

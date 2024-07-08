@@ -6,6 +6,7 @@ const session = require('express-session')
 const flash = require("express-flash")
 const express = require('express'); // add module express
 const app = express();
+const path = require('path')
 
 const database = require('./config/database'); // recall
 // Connect to database
@@ -20,6 +21,10 @@ app.use(cookieParser('andrew garfield'));
 app.use(session({ cookie: { maxAge: 60000 }}));
 app.use(flash());
 // End Flash 
+
+// TinyMCE
+app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
+// End TinyMCE
 
 app.use(express.static(`${__dirname}/public`)); // anyone can see this file
 

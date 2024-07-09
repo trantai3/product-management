@@ -131,7 +131,7 @@ module.exports.create = async (req, res) => {
     })
 }
 
-// [GET] /admins/products/create
+// [POST] /admins/products/create
 module.exports.createPost = async (req, res) => {
     req.body.price = parseInt(req.body.price)
     req.body.discountPercentage = parseInt(req.body.discountPercentage)

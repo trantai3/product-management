@@ -67,7 +67,6 @@ module.exports.editPatch = async (req, res) => {
     try {
         await ProductCategory.updateOne({ _id: id}, req.body)
         req.flash("success", "Cập nhật thành công!")
-        console.log(req.flash("success"))
     } catch (error) {
         req.flash("error", "Cập nhật thất bại!")
     }

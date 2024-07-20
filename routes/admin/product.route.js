@@ -35,7 +35,8 @@ router.patch(
     upload.single('thumbnail'),
     uploadCloud.upload,
     validate.createPost, // middleware 
-    controller.editPatch)
+    controller.editPatch
+)
 
 router.get('/detail/:id', controller.detail)
 

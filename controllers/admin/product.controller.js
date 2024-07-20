@@ -183,7 +183,6 @@ module.exports.editPatch = async (req, res) => {
         req.flash("success", "Cập nhật thành công!")
     } catch (error) {
         req.flash("error", "Cập nhật thất bại!")
-        
     }
 
     res.redirect("back")

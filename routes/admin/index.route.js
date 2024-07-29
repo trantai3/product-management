@@ -3,7 +3,7 @@ const dashboardRoutes = require("./dashboard.route")  // recall a dashboard.rout
 const productRoutes = require("./product.route")  // recall a dashboard.route
 const productCategoryRoutes = require("./product-category.route")
 const roleRoutes = require("./role.route")
-
+const accountRoutes = require("./account.route")
 
 
 module.exports = (app) => {   // reuse 
@@ -17,5 +17,6 @@ module.exports = (app) => {   // reuse
     
     app.use(PATH_ADMIN + '/roles', roleRoutes)
 
-    
+    app.use(PATH_ADMIN + '/accounts', accountRoutes)
+
 }

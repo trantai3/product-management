@@ -7,7 +7,7 @@ const flash = require("express-flash")
 const express = require('express'); // add module express
 const app = express();
 const path = require('path')
-
+const moment = require('moment')
 const database = require('./config/database'); // recall
 // Connect to database
 database.connect(); // connect
@@ -46,6 +46,7 @@ routeAdmin(app);
 // App Locals Variables
 const systemConfig = require("./config/system")
 app.locals.prefixAdmin = systemConfig.prefixAdmin // use pug
+app.locals.moment = moment // use pug
 // prefixAdmin variable exits all pug files
 
 const port = process.env.PORT; // add .ENV

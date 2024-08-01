@@ -54,6 +54,7 @@ block main
                   th Vị trí
                   th Trạng thái
                   th Người tạo
+                  th Người cập nhật
                   th Hành động
 
                   //- get controller file products: products // each item in products 
@@ -104,7 +105,14 @@ block main
                             ) Dừng hoạt động
                     td 
                       p #{item.accountFullName}
-                      +formatDateTime(item.createdBy.createdAt)
+                      p
+                        +formatDateTime(item.createdBy.createdAt)
+                    td 
+                      - const updatedBy = item.updatedBy.slice(-1)[0]
+                      if(updatedBy)
+                        p #{updatedBy.accountFullName}
+                        p
+                          +formatDateTime(updatedBy.updatedAt)
                     td 
                       a(
                         href = `${prefixAdmin}/products/detail/${item.id}` 

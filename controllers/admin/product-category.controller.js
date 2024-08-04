@@ -27,6 +27,13 @@ module.exports.create = async (req, res) => {
 
 // [POST] /admins/products-category/create
 module.exports.createPost = async (req, res) => {   
+    // const permissions = res.locals.role.permissions
+    // if (permissions.include("products-category_create")) {
+    //     console.log("Có quyền")
+    // } else {
+    //     res.send("403")
+    //     return
+    // }
     if (req.body.position) {
         req.body.position = parseInt(req.body.position)
     } else {

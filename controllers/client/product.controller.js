@@ -5,8 +5,6 @@ module.exports.index = async (req, res) => {   // add a property index
       status: "active",
       deleted: false
     }).sort({ position: "desc" });  // get all
-    
-    console.log(products)
     const newProduct = products.map(item => {
         item.newPrice = (item.price*(100 - item.discountPercentage)/100).toFixed(0)
         return item
@@ -28,8 +26,6 @@ module.exports.detail = async (req, res) => {   // add a property index
     }
 
     const product = await Product.findOne(find)
-
-    console.log(product)
     res.render("client/pages/products/detail", {
         pageTitle: product.title,
         product: product

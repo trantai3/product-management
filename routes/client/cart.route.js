@@ -9,4 +9,7 @@ router.post('/add/:productId', controller.addPost)   // define router handler wi
 
 router.get('/delete/:productId', controller.delete)
 
+router.get('/update/:productId/:quantity', controller.update)
+
+
 module.exports = router // return router and reuse

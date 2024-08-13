@@ -5,7 +5,7 @@ const homeRoutes = require("./home.route")  // recall a home.route
 const productRoutes = require("./product.route") // recall a home.route
 const searchRoutes = require("./search.route") // recall a home.route
 const cartRoutes = require("./cart.route") // recall a home.route
-
+const checkoutRoutes = require('./checkout.route')
 
 
 
@@ -22,6 +22,9 @@ module.exports = (app) => {   // reuse
     app.use('/search', searchRoutes) // recall
 
     app.use('/cart', cartRoutes) // recall
+
+    app.use('/checkout', checkoutRoutes) // recall
+
 
     
 }

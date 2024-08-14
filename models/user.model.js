@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema(
         avatar: String,
         status: {
             type: String,
-            default: "initial"
+            default: "active"
         },
         deleted: {
             type: Boolean,

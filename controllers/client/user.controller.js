@@ -1,10 +1,12 @@
 const md5 = require('md5')
 const User = require('../../models/user.model')
 const ForgotPassword = require('../../models/forgot-password.model')
+const Cart = require('../../models/cart.model')
 const sendEmailHelper = require('../../helpers/sendEmail')
 
 
 const generateHelper = require('../../helpers/generate')
+const { use } = require('../../routes/client/user.route')
 // [GET] /user/register
 module.exports.register = async (req, res) => {
     res.render("client/pages/user/register", {
@@ -68,6 +70,11 @@ module.exports.loginPost = async (req, res) => {
         return
     }
 
+    await Cart.updateOne({
+        _id: req.cookies.cartId
+    }, {
+        user_id: user.id
+    })
     res.cookie("tokenUser", user.tokenUser)
     res.redirect("/")
 }

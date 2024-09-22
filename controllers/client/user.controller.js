@@ -6,7 +6,6 @@ const sendEmailHelper = require('../../helpers/sendEmail')
 
 
 const generateHelper = require('../../helpers/generate')
-const { use } = require('../../routes/client/user.route')
 // [GET] /user/register
 module.exports.register = async (req, res) => {
     res.render("client/pages/user/register", {

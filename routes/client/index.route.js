@@ -9,6 +9,7 @@ const searchRoutes = require("./search.route") // recall a home.route
 const cartRoutes = require("./cart.route") // recall a home.route
 const checkoutRoutes = require('./checkout.route')
 const userRoutes = require('./user.route')
+const chatRoutes = require('./chat.route')
 
 
 
@@ -32,5 +33,8 @@ module.exports = (app) => {   // reuse
     app.use('/checkout', checkoutRoutes) // recall
 
     app.use('/user', userRoutes) // recall
+
+    app.use('/chat', chatRoutes) // recall
+
 
 }

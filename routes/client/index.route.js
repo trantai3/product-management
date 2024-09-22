@@ -2,6 +2,7 @@ const categoryMiddleware = require('../../middlewares/client/category.middleware
 const cartMiddleware = require('../../middlewares/client/cart.middleware')
 const userMiddleware = require('../../middlewares/client/user.middleware')
 const settingMiddleware = require('../../middlewares/client/setting.middleware')
+const authMiddleware = require('../../middlewares/client/auth.middleware')
 
 const homeRoutes = require("./home.route")  // recall a home.route
 const productRoutes = require("./product.route") // recall a home.route
@@ -34,7 +35,7 @@ module.exports = (app) => {   // reuse
 
     app.use('/user', userRoutes) // recall
 
-    app.use('/chat', chatRoutes) // recall
+    app.use('/chat', authMiddleware.requireAuth, chatRoutes) // recall
 
 
 }

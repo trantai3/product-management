@@ -9,6 +9,8 @@ const app = express();
 const path = require('path')
 const moment = require('moment')
 const database = require('./config/database'); // recall
+const http = require('http')
+const { Server } = require("socket.io")
 // Connect to database
 database.connect(); // connect
 
@@ -42,6 +44,13 @@ route(app); // recall
 const routeAdmin = require('./routes/admin/index.route'); // recall
 routeAdmin(app);
 
+// SocketIO
+const server = http.createServer(app)
+const io = new Server(server)
+io.on('connection', (socket) => {
+  console.log('a user connected', socket.id)
+})
+// End SocketIO
 
 // App Locals Variables
 const systemConfig = require("./config/system")
@@ -56,6 +65,7 @@ app.get("*", (req, res) => {
     pageTitle: "404 Not Found"
   })
 })
-app.listen(port, () => {
+
+server.listen(port, () => {
   console.log(`Example app listening on port ${port}`); // listen port
 });

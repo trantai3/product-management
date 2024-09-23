@@ -69,19 +69,11 @@ module.exports.loginPost = async (req, res) => {
         return
     }
 
-    const cart = await Cart.findOne({
+    await Cart.updateOne({
+        _id: req.cookies.cartId
+    }, {
         user_id: user.id
     })
-
-    if (cart) {
-        res.cookie("cartId", cart.id)
-    } else {
-        await Cart.updateOne({
-            _id: req.cookies.cartId
-        }, {
-            user_id: user.id
-        })
-    }
     res.cookie("tokenUser", user.tokenUser)
     res.redirect("/")
 }
